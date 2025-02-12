@@ -38,6 +38,25 @@ header {
   color: #18bc9c;
 }
 
+.login-btn {
+  display: inline-block;
+  padding: 5px 10px; 
+  font-size: 14px;
+  color: #007bff; 
+  text-decoration: none;
+  border: 2px solid #f6f7f8; 
+  border-radius: 5px;
+  font-weight: bold;
+  transition: 0.3s ease-in-out;
+  
+}
+
+.login-btn:hover {
+  background-color: #007bff;
+  color: white; 
+}
+
+
 .h2-pricing{
   padding: 3% 0 3% 0;
 }
@@ -348,6 +367,61 @@ header {
   text-decoration: none;
   border-radius: 5px;
   margin-top: 10px;
+}
+
+
+
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 450px; /* Fixed width */
+  text-align: center;
+  
+}
+
+.register-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 450px; /* Fixed width */
+  text-align: center;
+}
+
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Register Link Styling */
+.register-link {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /* -------------------------------------- */

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+
+    <link rel="stylesheet" href="indexStyles.css">
+</head>
+
+<header class="header">
+    <!-- logo-->
+    <div class="log">
+      <img src="img/logo.png" alt="Car Logo" class="logo" />
+    </div>
+    <!-- navigation -->
+    <nav class="navigation">
+      <a href="login.html" class="login-btn">Login/Register</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Our Services</a>
+      <a href="aboutUs.html">About Us</a>
+      <a href="contact_us.html">Contact Us</a>
+    </nav>
+  </header>
+
+<body class="bg-gray-50" style="background-color: #586a8e;"></body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="login.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        
+        <!-- Register button at the bottom of the page -->
+        <div class="register-link">
+            <p>Don't have an account?</p>
+            <a href="register.html" class="login-btn">Register Here</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+          <h2>Car-ing</h2>
+          <p>
+            Established in 2020, we offer a wide range of services and repairs at
+            a reasonable price. From all maintenance to repairs, at Car-ing, your
+            car is in safe hands.
+          </p>
+        </div>
+      </footer>  
+</body>
+</html>
