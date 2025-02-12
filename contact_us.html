@@ -9,13 +9,44 @@
   <title>Contact Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    function showThankYouMessage(event) {
+    function validateForm(event) {
       event.preventDefault(); // Prevent form submission
+
+      let name = document.getElementById("name").value.trim();
+      let email = document.getElementById("email").value.trim();
+      let message = document.getElementById("message").value.trim();
+
+      let nameRegex = /^[A-Za-z\s]+$/; // Only letters and spaces
+      let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email format
+
+      // Name Validation
+      if (name === "" || !nameRegex.test(name)) {
+        alert("Please enter a valid name (letters and spaces only).");
+        return false;
+      }
+
+      // Email Validation
+      if (email === "" || !emailRegex.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Message Validation
+      if (message === "" || message.length < 10) {
+        alert("Your message must be at least 10 characters long.");
+        return false;
+      }
+
+      // Success alert
       alert("We got your message. Thank you for contacting us!");
-      // Clear the form fields
+
+      // Clear the form fields after successful validation
       document.getElementById("name").value = "";
       document.getElementById("email").value = "";
       document.getElementById("message").value = "";
+
+      // Submit the form after validation
+      document.getElementById("contactForm").submit();
     }
   </script>
   <link rel="stylesheet" href="indexStyles.css" />
@@ -62,7 +93,7 @@
     <!-- Inquiry Form -->
     <div class="bg-white p-6 rounded-xl shadow-md">
       <h2 class="text-2xl font-bold mb-4">Inquiry Form</h2>
-      <form onsubmit="showThankYouMessage(event)" class="space-y-4">
+      <form id="contactForm" onsubmit="return validateForm(event)" class="space-y-4" action="submit_form.php" method="post">
         <!-- Name Field -->
         <div>
           <label for="name" class="block text-sm font-medium mb-1">Enter Your Name:</label>
@@ -126,6 +157,7 @@
 
 </body>
 </html>
+
 
 
 <!-- Maha Marakkalage Rashmi - Contact_Us Page -->
