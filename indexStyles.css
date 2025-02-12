@@ -1,0 +1,353 @@
+/* -------------------------------------- */
+/* Idex Page CSS by Singha Shuvojyoti */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* header & nav */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 50px;
+  background-color: #4b556a;
+  color: white;
+
+  /* Nikhil added */
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+}
+
+.navigation {
+  display: flex;
+  gap: 20px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navigation a:hover {
+  color: #18bc9c;
+}
+
+.h2-pricing{
+  padding: 3% 0 3% 0;
+}
+/* why choose us */
+.texts h2 {
+  text-decoration: underline;
+}
+
+.whyChoose {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-image: url("img/image2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 350px;
+  color: white;
+}
+
+.texts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.texts {
+  padding: 100px;
+}
+
+/* pricing */
+.pricing h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.pricing {
+  text-align: center;
+  background-color: #586a8e;
+  color: white;
+}
+
+.pricingCards {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+}
+
+.card {
+  background-color: #382e2e;
+  color: white;
+  border-radius: 15px;
+  padding: 10px;
+  width: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card p {
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.card button {
+  background-color: #8db6d2;
+  color: black;
+
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.card button:hover {
+  background-color: #54698b;
+}
+
+/* testimonials */
+.testimonials {
+  text-align: center;
+  background-color: #586a8e;
+  padding: 40px 20px;
+}
+
+.testimonials h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.testimonial {
+  padding: 20px;
+}
+
+.testimonial p {
+  font-style: italic;
+  color: white;
+  margin-bottom: 10px;
+}
+/* reviewer pic */
+.reviewer {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+
+.testimonial h4 {
+  margin: 0;
+  font-weight: bold;
+  color: white;
+}
+
+/* carousel buttons */
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: black;
+  border-radius: 50%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+/* footer */
+.footer {
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.footer h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* footer image */
+.footer-content {
+  background: url("img/shop.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 30px;
+}
+
+/* for small screens */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+    padding: 0% 0% 3% 0%;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 2%;
+  }
+
+  .texts {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .pricingCards {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    align-items: center;
+  }
+
+  .testimonial {
+    padding: 10px;
+  }
+
+  .footer-content {
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+/* -------------------------------------- */
+
+
+
+
+
+/* -------------------------------------- */
+/* Nikhil - Services Page CSS */
+
+.services-body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #54698b;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('img/services-hero.avif') center/cover;
+  height: 300px;
+  color: black;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+
+#herotext{
+  background-color: white;
+  padding: 5px 20px 5px 20px;
+  border-radius: 10px;
+}
+
+/* Services Grid */
+.services-conatiner {
+
+  display: flex;
+  justify-content: space-between;
+  gap: 3%;
+  padding: 40px 20px 30px 20px;
+}
+@media (max-width: 768px) {
+  .services-conatiner{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.services-conatiner > .card {
+  background: #f4f4f4;
+  border-radius: 8px;
+  width: 30%;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+  
+}
+@media (max-width: 768px) {
+  .services-conatiner > .card {
+    margin: 10px;
+    width: 60%;
+  }
+  
+}
+
+.services-conatiner > .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  
+}
+
+.services-conatiner > .card .card-title {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: #333;
+}
+
+.services-conatiner > .card .card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+
+/* Call to Action */
+.services-cta {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.services-cta h2 {
+  margin-bottom: 10px;
+}
+
+.services-cta a {
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* -------------------------------------- */

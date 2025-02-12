@@ -1,0 +1,122 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: normal;
+    background-color: #586a8e;
+    margin: 0%;
+}
+
+.aboutusheader{
+    background: teal ;
+    color: white;
+    text-align: center;
+}
+
+/* Nikhil Added */
+
+.about-body{
+    display: flex;
+    flex-direction: column;
+    margin: 0% 10% 0% 10%;
+    background-color: white;
+    padding-bottom: 5%;
+    font-size: large;
+    
+}
+
+.about-body h2,p,h3{
+    padding: 0% 10% 0% 10%;
+}
+
+.h2-1{
+    margin-top: 5%;
+}
+  
+
+/* --------------------------------------------------------------- */
+
+/* header & nav */
+/*copied from indexStyles.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    background-color: #4b556a;
+    color: white;
+  
+    /* Nikhil added */
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .navigation {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navigation a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .navigation a:hover {
+    color: #18bc9c;
+  }
+
+
+  /* footer */
+  /*copied from indexStyles.css */
+.footer {
+    color: #fff;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  .footer h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  
+  .footer p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* footer image */
+  .footer-content {
+    background: url("img/shop.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px;
+  }
+
+
+
+/* for small screens */
+/*copied from indexStyles.css */
+@media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      text-align: center;
+      padding: 0% 0% 3% 0%;
+    }
+  
+    .navigation {
+      flex-direction: column;
+      gap: 15px;
+      padding-top: 2%;
+    }
+  
+    .footer-content {
+      padding: 20px;
+      text-align: center;
+    }
+  }
