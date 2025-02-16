@@ -19,10 +19,10 @@
     </div>
     <!-- navigation -->
     <nav class="navigation">
-        <a href="login.html" class="login-btn">Login/Register</a>
+        <a href="login.php" class="login-btn">Login/Register</a>
         <a href="index.html">Home</a>
         <a href="services.html">Our Services</a>
-        <a href="aboutUs.html">About Us</a>
+        <a href="aboutUs.php">About Us</a>
         <a href="contact_us.html">Contact Us</a>
     </nav>
     </header>
@@ -51,13 +51,37 @@
             Building long lasting relationships based on trust and excellence.
         </p>
         <!--Team member-->
+        <!--
         <h3> Team Members</h3>
         <p>
             Sadia  - Lead Mechanic ,
             Shuvo  - Service Manager,
             Nikhil - Customer Suuport,
             Rashmi - Customer Suuport.
-        </p>
+        </p> 
+    -->
+
+    <h3>Team Members</h3>
+    <ul id="employee-list"></ul>
+     
+    <script>
+    fetch('employees.php')
+        .then(response => response.json())
+        .then(data => {
+            let employeeList = document.getElementById('employee-list');
+            data.forEach(employee => {
+                let listItem = document.createElement('li');
+                listItem.textContent = `${employee.name} - ${employee.position}`;
+                employeeList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error fetching employee data:', error));
+    </script>
+     
+
+
+
+
     </div>
 
     <footer class="footer">
