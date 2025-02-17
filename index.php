@@ -5,10 +5,10 @@ $title = "My Title";
 include 'header.php';
 include 'db_connection.php';
 
-// Handle form submission
+// Handle form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
-    $review = $_POST['comment'];  // You had 'review' in your original code, but the form has 'comment' now
+    $review = $_POST['comment'];  // the form has 'comment' now
 
     if (!empty($name) && !empty($review)) {
         // Insert into database
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->close();
 
-        // Refresh the page to show the new review
+        // Refresh the page to show new review
         header("Location: index.php");
         exit();
     }
