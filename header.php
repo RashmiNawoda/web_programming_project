@@ -20,10 +20,10 @@
       </div>
       <!-- navigation -->
       <nav class="navigation">
-        <a href="login.html" class="login-btn">Login/Register</a>
+        <a href="login.php" class="login-btn">Login/Register</a>
         <a href="index.php">Home</a>
         <a href="services.html">Our Services</a>
         <a href="aboutUs.php">About Us</a>
-        <a href="contact_us.html">Contact Us</a>
+        <a href="contact_us.php">Contact Us</a>
       </nav>
     </header>

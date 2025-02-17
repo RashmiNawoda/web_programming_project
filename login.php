@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <div class="login-container">
         <h2>Login</h2>
-        <form action="login.php" method="POST">
+        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
             <input type="email" name="email" placeholder="Enter your email" required>
             <input type="password" name="password" placeholder="Enter your password" required>
             <button type="submit" class="login-btn">Login</button>
