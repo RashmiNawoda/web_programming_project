@@ -28,6 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Contact Us</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="indexStyles.css" />
+     <script>
+        <?php if (isset($success)): ?>
+            window.onload = function() {
+                alert("<?php echo $success; ?>");
+                window.location.href = "index.php"; 
+            };
+        <?php endif; ?>
+    </script>
 </head>
 <body class="bg-gray-50" style="background-color: #586a8e">
     <header class="header">
@@ -35,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="img/logo.png" alt="Car Logo" class="logo" />
         </div>
         <nav class="navigation">
-            <a href="login.html" class="login-btn">Login/Register</a>
+            <a href="login.php" class="login-btn">Login/Register</a>
             <a href="index.php">Home</a>
             <a href="services.html">Our Services</a>
             <a href="aboutUs.html">About Us</a>
