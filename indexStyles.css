@@ -18,8 +18,7 @@ header {
   /* Nikhil added */
   position: sticky;
   top: 0;
-  z-index: 1;
-
+  z-index: 100;
 }
 
 .navigation {
@@ -40,24 +39,22 @@ header {
 
 .login-btn {
   display: inline-block;
-  padding: 5px 10px; 
+  padding: 5px 10px;
   font-size: 14px;
-  color: #007bff; 
+  color: #007bff;
   text-decoration: none;
-  border: 2px solid #f6f7f8; 
+  border: 2px solid #f6f7f8;
   border-radius: 5px;
   font-weight: bold;
   transition: 0.3s ease-in-out;
-  
 }
 
 .login-btn:hover {
   background-color: #007bff;
-  color: white; 
+  color: white;
 }
 
-
-.h2-pricing{
+.h2-pricing {
   padding: 3% 0 3% 0;
 }
 /* why choose us */
@@ -155,6 +152,8 @@ header {
   text-align: center;
   background-color: #586a8e;
   padding: 40px 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .testimonials h2 {
@@ -171,6 +170,39 @@ header {
   color: white;
   margin-bottom: 10px;
 }
+
+.review-form-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.review-form-container input,
+.review-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.review-form-container button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.review-form-container button:hover {
+  background-color: #0056b3;
+}
+
 /* reviewer pic */
 .reviewer {
   width: 100px;
@@ -264,10 +296,6 @@ header {
 
 /* -------------------------------------- */
 
-
-
-
-
 /* -------------------------------------- */
 /* Nikhil - Services Page CSS */
 
@@ -282,7 +310,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('img/services-hero.avif') center/cover;
+  background: url("img/services-hero.avif") center/cover;
   height: 300px;
   color: black;
   text-align: center;
@@ -290,7 +318,7 @@ header {
   font-weight: bold;
 }
 
-#herotext{
+#herotext {
   background-color: white;
   padding: 5px 20px 5px 20px;
   border-radius: 10px;
@@ -298,14 +326,13 @@ header {
 
 /* Services Grid */
 .services-conatiner {
-
   display: flex;
   justify-content: space-between;
   gap: 3%;
   padding: 40px 20px 30px 20px;
 }
 @media (max-width: 768px) {
-  .services-conatiner{
+  .services-conatiner {
     flex-direction: column;
     align-items: center;
   }
@@ -318,21 +345,18 @@ header {
   text-align: center;
   padding: 20px;
   margin-bottom: 20px;
-  
 }
 @media (max-width: 768px) {
   .services-conatiner > .card {
     margin: 10px;
     width: 60%;
   }
-  
 }
 
 .services-conatiner > .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  
 }
 
 .services-conatiner > .card .card-title {
@@ -345,7 +369,6 @@ header {
   font-size: 1rem;
   color: #555;
 }
-
 
 /* Call to Action */
 .services-cta {
@@ -369,8 +392,6 @@ header {
   margin-top: 10px;
 }
 
-
-
 .login-container {
   background-color: white;
   padding: 30px;
@@ -378,7 +399,6 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 450px; /* Fixed width */
   text-align: center;
-  
 }
 
 .register-container {
@@ -389,7 +409,6 @@ header {
   width: 450px; /* Fixed width */
   text-align: center;
 }
-
 
 input {
   width: 100%;
