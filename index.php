@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Fetch reviews for display
-$sql = "SELECT name, comment FROM reviews ORDER BY id DESC LIMIT 5";
+$sql = "SELECT id, name, comment FROM reviews ORDER BY id DESC LIMIT 5";
 $result = $conn->query($sql);
 ?>
 
@@ -95,6 +95,18 @@ $result = $conn->query($sql);
               <div class="testimonial">
                 <p>"<?php echo htmlspecialchars($row['comment']); ?>"</p>
                 <h4>- <?php echo htmlspecialchars($row['name']); ?></h4>
+                
+                <!-- EDIT button -->
+                <form action="edit_review.php" method="GET" style="display:inline;">
+                  <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                  <button type="submit" class="edit-btn">Edit</button>
+                </form>
+
+                <!-- DELETE button -->
+                <form action="delete_review.php" method="POST" style="display:inline;">
+                  <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                  <button type="submit" name="delete" class="delete-btn" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button>
+                </form>
               </div>
             </div>
           <?php

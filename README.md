@@ -26,6 +26,9 @@ Form 3 (Maha Marakkalage Rashmi Nawoda): Form Name: Login Form
 https://github.com/RashmiNawoda/web_programming_project/login.php
 
 # SHUVOJYOTI SINGHA:
-    1. Changed index.html ot index.php
-    2. Added universal header and footer
-    3. Feature: Customer review(User's can create, read / Admin can update, delete reviews)
+
+    1. Changed html files to php.
+    2. Added universal header and footer.
+    3. Feature: Show Customer's review
+    4. Database: Created reviews table to take the input(name, reviews) of users.
+    5. CRUD: User can create, read, update, delete reviews.
