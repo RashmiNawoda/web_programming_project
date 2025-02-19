@@ -14,6 +14,8 @@ we have developed a website for car services.
 
     1. Changed html files to php.
     2. Added universal header and footer.
-    3. Feature: Show Customer's review
+    3. Feature: Showing Customer's review
+    4. Form: Submit review form in Home page.
     4. Database: Created reviews table to take the input(name, reviews) of users.
     5. CRUD: User can create, read, update, delete reviews.
+    6. Javascript: Event handler delete confirmation, validation(blank reviews are not taken.)
