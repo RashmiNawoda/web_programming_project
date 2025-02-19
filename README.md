@@ -4,26 +4,11 @@
 
 we have developed a website for car services.
 
-# Features
+# Maha Marakkalage Rashmi Nawoda
 
-Feature 1 (Maha Marakkalage Rashmi Naowda): Added Login and Register pages with a new button
-https://github.com/RashmiNawoda/web_programming_project/login.php
-https://github.com/RashmiNawoda/web_programming_project/register.php
-
-# Database Tables
-
-Table 1 (Maha Marakkalage Rashmi Nawoda): User Table
-https://github.com/RashmiNawoda/web_programming_project/user.png
-https://github.com/RashmiNawoda/web_programming_project/db_connection.php
-
-# Created Forms
-
-Form 1 (Maha Marakkalage Rashmi Nawoda): Form Name: Inquiry Form in Contact Us page |JavaScript Validations Applied And JavaScript event Handlers Applied
-https://github.com/RashmiNawoda/web_programming_project/contact_us.php
-Form 2 (Maha Marakkalage Rashmi Nawoda): Form Name: Register Form
-https://github.com/RashmiNawoda/web_programming_project/register.php
-Form 3 (Maha Marakkalage Rashmi Nawoda): Form Name: Login Form
-https://github.com/RashmiNawoda/web_programming_project/login.php
+1. Features : Added Login and Register pages with a new button
+2. Database : Created User User Table
+3. Form : Inquiry Form in Contact Us page |JavaScript Validations Applied And JavaScript event Handlers Applied
 
 # SHUVOJYOTI SINGHA:
 
