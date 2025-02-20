@@ -30,10 +30,6 @@ we have developed a website for car services.
 3. **Traditional Listing**:  
    - If JavaScript isn't used, cars are displayed on **`car_listing.php`** using PHP and MySQL queries.
 
-## **Main Files**
-- **`car_listing.php`**: Main page where users can view cars filtered by price.
-- **`fetch_cars.php`**: Handles AJAX requests and returns filtered cars in JSON format.
-
 ## **Database Information**
 - **Database Name**: `car_listings`
 - **Table Name**: `cars`
