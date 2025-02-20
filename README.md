@@ -18,4 +18,4 @@ we have developed a website for car services.
     4. Form: Submit review form in Home page.
     4. Database: Created reviews table to take the input(name, reviews) of users.
     5. CRUD: User can create, read, update, delete reviews.
-    6. Javascript: Event handler delete confirmation, validation(blank reviews are not taken.)
+    6. Javascript: Event handler delete confirmation, validation(blank reviews are not taken
