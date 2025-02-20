@@ -22,18 +22,21 @@ we have developed a website for car services.
 
 # Harsh Chahal
 
-**Functionality**
+## **Functionality**
+1. **Car Price Filter**: Users can select a price range.
+2. **AJAX-Based Dynamic Listing**:  
+   - Cars are dynamically fetched and displayed **without refreshing the page** using AJAX.
+   - The filtering process is handled by **`fetch_cars.php`** which returns JSON data.
+3. **Traditional Listing**:  
+   - If JavaScript isn't used, cars are displayed on **`car_listing.php`** using PHP and MySQL queries.
 
-1.**Car Price Filter**: Users can select a price range.
+## **Main Files**
+- **`car_listing.php`**: Main page where users can view cars filtered by price.
+- **`fetch_cars.php`**: Handles AJAX requests and returns filtered cars in JSON format.
 
-2. **Dynamic Listing**: Cars within the selected price range are displayed on the **`car_listing.php`** page.
-
-## Main File
-- **`car_listing.php`**: This is the main page where users can view cars filtered by price range.
-
-## Database Information
+## **Database Information**
 - **Database Name**: `car_listings`
-- **Table Name**: `car`
+- **Table Name**: `cars`
 - **Table Structure**:
   - `id` (INT, Auto Increment, Primary Key)
   - `name` (VARCHAR)
@@ -41,9 +44,10 @@ we have developed a website for car services.
   - `price` (DECIMAL)
   - `description` (TEXT)
 
-## Files Added
-- `add_car.php`:  allowed users to add cars to the listing.
-- `edit_car.php`: allowed users to edit car details.
-- `delete_car.php`:  allowed users to delete cars.
-- `update_car.php`:  used to update car information.
+## **How It Works**
+1. **User selects a price range** in `car_listing.php`.
+2. **AJAX sends the request** to `fetch_cars.php` without reloading the page.
+3. **`fetch_cars.php` returns JSON data**, and JavaScript updates the car listings dynamically.
+4. **If AJAX is not supported**, `car_listing.php` falls back to the traditional PHP-based filtering.
+
 
