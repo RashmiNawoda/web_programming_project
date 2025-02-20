@@ -23,6 +23,7 @@ we have developed a website for car services.
 # Harsh Chahal
 
 **Functionality**
+
 1.**Car Price Filter**: Users can select a price range.
 
 2. **Dynamic Listing**: Cars within the selected price range are displayed on the **`car_listing.php`** page.
