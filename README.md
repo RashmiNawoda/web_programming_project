@@ -31,9 +31,19 @@ we have developed a website for car services.
 ## Main File
 - **`car_listing.php`**: This is the main page where users can view cars filtered by price range.
 
+## Database Information
+- **Database Name**: `car_listings`
+- **Table Name**: `car`
+- **Table Structure**:
+  - `id` (INT, Auto Increment, Primary Key)
+  - `name` (VARCHAR)
+  - `model` (VARCHAR)
+  - `price` (DECIMAL)
+  - `description` (TEXT)
+
 ## Files Added
-- `add_car.php`: (Currently unused) Previously allowed users to add cars to the listing.
-- `edit_car.php`: (Currently unused) Previously allowed users to edit car details.
-- `delete_car.php`: (Currently unused) Previously allowed users to delete cars.
-- `update_car.php`: (Currently unused) Previously used to update car information.
+- `add_car.php`:  allowed users to add cars to the listing.
+- `edit_car.php`: allowed users to edit car details.
+- `delete_car.php`:  allowed users to delete cars.
+- `update_car.php`:  used to update car information.
 
