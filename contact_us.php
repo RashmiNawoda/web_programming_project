@@ -48,6 +48,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="services.html">Our Services</a>
             <a href="aboutUs.html">About Us</a>
             <a href="contact_us.php">Contact Us</a>
+            <a href="car_listing.php">Cars for You</a>
+
         </nav>
     </header>
     <div class="container mx-auto py-8">
