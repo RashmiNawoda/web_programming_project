@@ -1,3 +1,6 @@
+<!-- Sadia Rumpa - About_Us Page -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +63,7 @@
         </p> 
     -->
 
-    <h3>Team Members</h3>
+  <h3>Team Members</h3>
 <ul id="employee-list">
     <?php
     // Include the database connection
@@ -103,7 +106,7 @@
             let employeeList = document.getElementById('employee-list');
             data.forEach(employee => {
                 let listItem = document.createElement('li');
-                listItem.textContent = ${employee.name} - ${employee.position};
+                listItem.textContent = `${employee.name} - ${employee.position}`;
                 employeeList.appendChild(listItem);
             });
         })
@@ -129,3 +132,6 @@
     
 </body>
 </html>
+
+
+<!-- Sadia Rumpa - About_Us Page -->

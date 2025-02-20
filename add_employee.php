@@ -20,8 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Error: " . mysqli_error($conn);
     }
 
-    // Redirect to the home page
-    header("Location: index.php");
+    // Redirect to the About Us page after submission
+    header("Location: aboutUs.php");
     exit();
 }
 ?>
