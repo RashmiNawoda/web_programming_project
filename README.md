@@ -23,9 +23,9 @@ we have developed a website for car services.
 # Harsh Chahal
 
 # Available cars 
-1.Car Price Filter: Users can select a price range.
+1.**Car Price Filter**: Users can select a price range.
 
-2. Dynamic Listing: Cars within the selected price range are displayed on the **`car_listing.php`** page.
+2. **Dynamic Listing**: Cars within the selected price range are displayed on the **`car_listing.php`** page.
 
 ## Main File
 - **`car_listing.php`**: This is the main page where users can view cars filtered by price range.
