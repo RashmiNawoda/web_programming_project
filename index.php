@@ -1,30 +1,62 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+$user_id = $_SESSION['user_id'] ?? null; // Avoid undefined key issue
+$fullname = $_SESSION['fullname'] ?? "Guest"; // Provide a default value
+
+echo "<h2>Welcome, $fullname!</h2>";
+
 $title = "My Title";
 
 // Include PHP files
 include 'header.php';
 include 'db_connection.php';
 
-// Handle form
+// Handle review submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $review = $_POST['comment'];  // the form has 'comment' now
 
-    if (!empty($name) && !empty($review)) {
-        // Insert into database
-        $stmt = $conn->prepare("INSERT INTO reviews (name, comment) VALUES (?, ?)");
-        $stmt->bind_param("ss", $name, $review);
-        $stmt->execute();
-        $stmt->close();
+  // If not logged in, alert and redirect to login page.
+  if (!isset($_SESSION['user_id'])) {
+      echo "<script>
+              alert('Please log in to submit a review.');
+              window.location.href = 'login.php';
+            </script>";
+      exit();
+  }
 
-        // Refresh the page to show new review
-        header("Location: index.php");
-        exit();
-    }
+  $name = trim($_POST['name']);
+  $review = trim($_POST['comment']);
+
+  // PHP validation: Ensure fields are not empty
+  if (empty($name) || empty($review)) {
+      echo "<p>Please fill in both the name and the review fields.</p>";
+  } elseif (strlen($review) > 500) {
+      echo "<p>Review must be under 500 characters.</p>";
+  } else {
+      // Sanitize inputs
+      $name = htmlspecialchars($name);
+      $review = htmlspecialchars($review);
+      
+      // Get logged-in user ID
+      $user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+      
+      // Insert review into database with the associated user_id
+      $stmt = $conn->prepare("INSERT INTO reviews (name, comment, user_id) VALUES (?, ?, ?)");
+      $stmt->bind_param("ssi", $name, $review, $user_id);
+      $stmt->execute();
+      $stmt->close();
+
+      // Refresh page to show new review
+      header("Location: index.php");
+      exit();
+  }
 }
 
 // Fetch reviews for display
-$sql = "SELECT id, name, comment FROM reviews ORDER BY id DESC LIMIT 5";
+$sql = "SELECT id, name, comment, user_id FROM reviews ORDER BY id DESC LIMIT 5";
 $result = $conn->query($sql);
 ?>
 
@@ -71,7 +103,7 @@ $result = $conn->query($sql);
         </div>
         <div class="card">
           <h2>High End</h2>
-          <p class="price">150€</p>
+          <p class="price">150 Euros</p>
           <p>
             Free Wash, Touch up, Full Cleaning, <br />
             Engine Maintenance
@@ -84,66 +116,66 @@ $result = $conn->query($sql);
     </section>
     <!-- testimonials -->
     <section class="testimonials">
-      <h2>What Our Customers Say</h2>
-      <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <div class="carousel-inner">
-          <?php
-          $first = true;
-          while ($row = $result->fetch_assoc()) {
-            ?>
-            <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
-              <div class="testimonial">
-                <p>"<?php echo htmlspecialchars($row['comment']); ?>"</p>
-                <h4>- <?php echo htmlspecialchars($row['name']); ?></h4>
-                
-                <!-- EDIT button -->
-                <form action="edit_review.php" method="GET" style="display:inline;">
-                  <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                  <button type="submit" class="edit-btn">Edit</button>
-                </form>
-
-                <!-- DELETE button -->
-                <form action="delete_review.php" method="POST" style="display:inline;">
-                  <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
-                  <button type="submit" name="delete" class="delete-btn" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button>
-                </form>
-              </div>
-            </div>
-          <?php
-            $first = false;
-          }
+  <h2>What Our Customers Say</h2>
+  <div id="carouselExampleFade" class="carousel slide carousel-fade">
+    <div class="carousel-inner">
+      <?php
+      $first = true;
+      while ($row = $result->fetch_assoc()) {
           ?>
-        </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleFade"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
+          <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
+            <div class="testimonial">
+              <p>"<?php echo htmlspecialchars($row['comment']); ?>"</p>
+              <h4>- <?php echo htmlspecialchars($row['name']); ?></h4>
+              
+              <?php
+              // If user is logged in and this review belongs to them, show Edit and Delete buttons.
+              if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $row['user_id']) {
+                  ?>
+                  <!-- EDIT button -->
+                  <form action="edit_review.php" method="GET" style="display:inline;">
+                      <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                      <button type="submit" class="edit-btn">Edit</button>
+                  </form>
 
-      <!-- Review Submission Form -->
-      <div class="review-form-container text-center">
-        <h6>Leave a Review</h6>
-        <form method="POST" action="index.php">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <textarea name="comment" placeholder="Write your review here..." required></textarea>
-          <button type="submit">Submit Review</button>
-        </form>
-      </div>
-    </section>
+                  <!-- DELETE button -->
+                  <form action="delete_review.php" method="POST" style="display:inline;">
+                      <input type="hidden" name="review_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                      <button type="submit" name="delete" class="delete-btn" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button>
+                  </form>
+              <?php
+              }
+              ?>
+            </div>
+          </div>
+      <?php
+          $first = false;
+      }
+      ?>
+    </div>
+    <!-- Carousel buttons -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+  </div>
+  
+  <!-- Review Submission Form -->
+  <div class="review-form-container text-center">
+    <h6>Leave a Review</h6>
+    <form method="POST" action="index.php">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <textarea name="comment" placeholder="Write your review here..." required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  </div>
+</section>
 
     <!-- added bootstrap javascript -->
     <script src="indexScript.js"></script>

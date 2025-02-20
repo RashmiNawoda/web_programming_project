@@ -1,3 +1,9 @@
+<?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,14 +19,19 @@
     />
     <link rel="stylesheet" href="indexStyles.css" />
   </head>
-  <header class="header">
+  <body>
+    <header class="header">
       <!-- logo-->
       <div class="log">
         <img src="img/logo.png" alt="Car Logo" class="logo" />
       </div>
       <!-- navigation -->
       <nav class="navigation">
-        <a href="login.php" class="login-btn">Login/Register</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+          <a href="logout.php" class="login-btn">Log Out</a>
+        <?php else: ?>
+          <a href="login.php" class="login-btn">Login/Register</a>
+        <?php endif; ?>
         <a href="index.php">Home</a>
         <a href="services.html">Our Services</a>
         <a href="aboutUs.php">About Us</a>

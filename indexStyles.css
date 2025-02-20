@@ -294,6 +294,19 @@ header {
   }
 }
 
+/* Style for Edit and Delete buttons */
+.edit-btn,
+.delete-btn {
+  background-color: #8db6d2;
+  color: white;
+  border: none;
+  border-radius: 8px; /* Rounded corners */
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
 /* -------------------------------------- */
 
 /* -------------------------------------- */
@@ -524,7 +537,8 @@ input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.car-listings th, .car-listings td {
+.car-listings th,
+.car-listings td {
   padding: 15px;
   border: 1px solid #ddd;
 }

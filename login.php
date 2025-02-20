@@ -1,4 +1,7 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -17,15 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Verify password
         if (password_verify($password, $user['password_hash'])) {
-            session_start();
+            // Set session variables
             $_SESSION['user_id'] = $user['user_id'];
             $_SESSION['fullname'] = $user['fullname'];
-            echo "Login successful! <a href='index.php'>Go to Dashboard</a>";
+
+            // Redirect user to index.php after login
+            header("Location: index.php");
+            exit();
         } else {
-            echo "Incorrect password!";
+            $error = "Incorrect password!";
         }
     } else {
-        echo "User not found!";
+        $error = "User not found!";
     }
 
     $stmt->close();
@@ -56,17 +62,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </nav>
     </header>
     <div class="login-container">
-        <h2>Login</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-            <input type="email" name="email" placeholder="Enter your email" required>
-            <input type="password" name="password" placeholder="Enter your password" required>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
-        <div class="register-link">
-            <p>Don't have an account?</p>
-            <a href="register.php" class="login-btn">Register Here</a>
-        </div>
+    <h2>Login</h2>
+    <?php if (isset($error)) { ?>
+        <p style="color: red;"><?php echo $error; ?></p>
+    <?php } ?>
+    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+    <div class="register-link">
+        <p>Don't have an account?</p>
+        <a href="register.php" class="login-btn">Register Here</a>
     </div>
+</div>
     <footer class="footer">
         <div class="footer-content">
             <h2>Car-ing</h2>
