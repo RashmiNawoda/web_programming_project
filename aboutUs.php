@@ -1,6 +1,3 @@
-<!-- Sadia Rumpa - About_Us Page -->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,8 +61,41 @@
     -->
 
     <h3>Team Members</h3>
-    <ul id="employee-list"></ul>
-     
+<ul id="employee-list">
+    <?php
+    // Include the database connection
+    include('db_connection.php');
+
+    // Query to fetch employee data
+    $sql = "SELECT * FROM employees";
+    $result = mysqli_query($conn, $sql);
+
+    // Check if any team members exist
+    if (mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<li>{$row['name']} - {$row['position']} - {$row['email']} - {$row['phone']}</li>";
+        }
+    } else {
+        echo "<li>No team members found.</li>";
+    }
+    ?>
+</ul>
+    <h3>Add New Team Member</h3>
+<form action="add_employee.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="position">Position:</label>
+    <input type="text" id="position" name="position" required><br>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" required><br>
+
+    <button type="submit">Add Team Member</button>
+</form>
     <script>
     fetch('employees.php')
         .then(response => response.json())
@@ -73,7 +103,7 @@
             let employeeList = document.getElementById('employee-list');
             data.forEach(employee => {
                 let listItem = document.createElement('li');
-                listItem.textContent = `${employee.name} - ${employee.position}`;
+                listItem.textContent = ${employee.name} - ${employee.position};
                 employeeList.appendChild(listItem);
             });
         })
@@ -99,6 +129,3 @@
     
 </body>
 </html>
-
-
-<!-- Sadia Rumpa - About_Us Page -->
