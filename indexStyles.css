@@ -443,4 +443,103 @@ input {
   margin-top: 20px;
 }
 
+/* Car Listings Hero Section */
+.car-listings-hero {
+  background-color: #586a8e;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.car-listings-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.car-listings-hero p {
+  font-size: 1.2rem;
+}
+
+/* Car Filters Section */
+.car-filters {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.car-filters h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.car-filters form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.car-filters label {
+  font-weight: bold;
+}
+
+.car-filters input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.car-filters button {
+  padding: 10px 20px;
+  background-color: #8db6d2;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.car-filters button:hover {
+  background-color: #54698b;
+}
+
+/* Car Listings Table */
+.car-listings {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.car-listings h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.car-listings table {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.car-listings th, .car-listings td {
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+.car-listings th {
+  background-color: #382e2e;
+  color: white;
+  font-weight: bold;
+}
+
+.car-listings tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.car-listings tr:hover {
+  background-color: #ddd;
+}
 /* -------------------------------------- */
