@@ -2,12 +2,12 @@
 include 'db_connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form data
+   
     $model = $_POST['model'];
     $price = $_POST['price'];
     $description = $_POST['description'];
 
-    // Insert into the database
+   
     $sql = "INSERT INTO cars (model, price, description) VALUES ('$model', '$price', '$description')";
 
     if ($conn->query($sql) === TRUE) {
