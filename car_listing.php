@@ -6,13 +6,13 @@ include 'db_connection.php';
 
 <main>
   <body>
-    <!-- Hero Section with Attractive Heading -->
+    
     <section class="car-listings-hero">
       <h1>Find Your Dream Car</h1>
       <p>Explore our collection of high-quality second-hand cars.</p>
     </section>
 
-    <!-- Filter Section -->
+    
     <section class="car-filters">
       <h2>Filter Cars by Price</h2>
       <form id="filterForm">
@@ -39,14 +39,14 @@ include 'db_connection.php';
           </tr>
         </thead>
         <tbody id="carTableBody">
-          <!-- Cars will be dynamically inserted here -->
+         
         </tbody>
       </table>
     </section>
 
     <script>
     document.getElementById('filterForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent page reload
+        event.preventDefault();
 
         let minPrice = document.getElementById('min_price').value;
         let maxPrice = document.getElementById('max_price').value;
@@ -55,8 +55,7 @@ include 'db_connection.php';
         .then(response => response.json())
         .then(data => {
             let tableBody = document.getElementById('carTableBody');
-            tableBody.innerHTML = ""; // Clear previous results
-
+            tableBody.innerHTML = ""; 
             if (data.length === 0) {
                 tableBody.innerHTML = "<tr><td colspan='4'>No cars found in this price range.</td></tr>";
             } else {
